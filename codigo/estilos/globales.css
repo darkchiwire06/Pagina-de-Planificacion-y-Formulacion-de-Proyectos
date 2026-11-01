@@ -1,0 +1,436 @@
+@import "tailwindcss";
+
+/* Sistema de tokens de diseño: estética Inmersivo Oscuro Botánico */
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-dosel: #06110c;
+  --color-musgo: #0c1c15;
+  --color-hoja: #13291f;
+  --color-hoja-alta: #193529;
+  --color-bruma: #ecf5ef;
+  --color-liquen: #9bb5a6;
+  --color-helecho: #6e8f7e;
+  --color-esmeralda: #34d399;
+  --color-esmeralda-profundo: #059669;
+  --color-terracota: #f06449;
+  --color-ambar: #fbbf24;
+
+  --curva-salida-fuerte: cubic-bezier(0.22, 1, 0.36, 1);
+  --curva-entrada-salida: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background-color: #06110c;
+  color: #ecf5ef;
+  font-family: var(--font-sans);
+  /* Elimina el destello gris/azul por defecto al tocar en navegadores móviles */
+  -webkit-tap-highlight-color: transparent;
+  /* Evita el inflado automático de texto al girar el teléfono en horizontal */
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-x: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background-color: #06110c;
+  color: #ecf5ef;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ergonomía táctil nativa: respuesta inmediata sin espera de 300ms ni selección accidental */
+button,
+a,
+[role="button"],
+[role="tab"],
+.control-tactil {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+}
+
+/* Respuesta física inmediata al presionar con el pulgar (:active) */
+.presionable {
+  transition:
+    transform 140ms var(--curva-salida-fuerte),
+    opacity 140ms var(--curva-salida-fuerte),
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.presionable:active {
+  transform: scale(0.97);
+}
+
+/* Aísla los efectos :hover únicamente para dispositivos con puntero fino (ratón/trackpad) */
+@media (hover: hover) and (pointer: fine) {
+  .elevacion-cursor {
+    transition:
+      transform 220ms var(--curva-salida-fuerte),
+      border-color 220ms ease,
+      background-color 220ms ease;
+  }
+
+  .elevacion-cursor:hover {
+    transform: translateY(-3px);
+    border-color: rgba(52, 211, 153, 0.36);
+  }
+
+  .presionable:hover {
+    border-color: rgba(236, 245, 239, 0.3);
+  }
+}
+
+/* Anillo de enfoque accesible para navegación por teclado */
+:focus-visible {
+  outline: 2px solid #34d399;
+  outline-offset: 3px;
+}
+
+/* Utilidades de márgenes seguros para pantallas con notch o barra inferior */
+.relleno-seguro-superior {
+  padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+}
+
+.relleno-seguro-inferior {
+  padding-bottom: max(2rem, calc(1.25rem + env(safe-area-inset-bottom, 0px)));
+}
+
+/* Oculta la barra visual de scroll horizontal conservando el deslizamiento táctil */
+.sin-barra-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sin-barra-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Giro 3D nítido: aplica perspectiva solo durante la animación y libera la capa 3D en reposo para máxima nitidez tipográfica */
+.escena-giro-nitido {
+  display: grid;
+  align-items: start;
+}
+
+.escena-giro-nitido.en-movimiento-3d {
+  perspective: 1300px;
+  -webkit-perspective: 1300px;
+}
+
+.cara-giratoria {
+  grid-area: 1 / 1;
+  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Coreografía vectorial acelerada en el compositor GPU (estrictamente transform y opacity fuera del hilo principal) */
+@keyframes levitacionOrganica {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes orbitaHorario {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitaAntihorario {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes brisaBotanicaIzquierda {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.8deg);
+  }
+}
+
+@keyframes brisaBotanicaDerecha {
+  0%,
+  100% {
+    transform: rotate(2.5deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+}
+
+@keyframes corrienteFluvial {
+  0%,
+  100% {
+    transform: translate3d(-16px, 0, 0);
+  }
+  50% {
+    transform: translate3d(16px, 0, 0);
+  }
+}
+
+@keyframes flujoCintaIndustrial {
+  0% {
+    transform: translate3d(-14px, 0, 0);
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(14px, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes ascensoParticula {
+  0% {
+    transform: translate3d(0, 5px, 0) scale(0.92);
+    opacity: 0;
+  }
+  30%,
+  70% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(0, -11px, 0) scale(1.08);
+    opacity: 0;
+  }
+}
+
+@keyframes humoContaminante {
+  0% {
+    transform: translate3d(0, 4px, 0) scale(0.92);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate3d(3px, -5px, 0) scale(1.04);
+    opacity: 0.78;
+  }
+  100% {
+    transform: translate3d(-2px, -13px, 0) scale(1.14);
+    opacity: 0.1;
+  }
+}
+
+@keyframes goteoLixiviado {
+  0% {
+    transform: translate3d(0, -4px, 0);
+    opacity: 0;
+  }
+  30%,
+  75% {
+    opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(0, 9px, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes llamaControlada {
+  0%,
+  100% {
+    transform: scale(0.95, 0.92);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.06, 1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes pulsoHalo {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.38;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.78;
+  }
+}
+
+@keyframes destelloLuciernaga {
+  0%,
+  100% {
+    transform: scale(0.88);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.26);
+    opacity: 0.95;
+  }
+}
+
+.animar-levitacion {
+  animation: levitacionOrganica 5.2s ease-in-out infinite;
+}
+
+.animar-orbita-horario {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: orbitaHorario 26s linear infinite;
+}
+
+.animar-orbita-antihorario {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: orbitaAntihorario 19s linear infinite;
+}
+
+.animar-brisa-izquierda {
+  transform-origin: bottom left;
+  transform-box: fill-box;
+  animation: brisaBotanicaIzquierda 5.8s ease-in-out infinite;
+}
+
+.animar-brisa-derecha {
+  transform-origin: bottom right;
+  transform-box: fill-box;
+  animation: brisaBotanicaDerecha 6.2s ease-in-out infinite;
+}
+
+.animar-brote-vivo {
+  transform-origin: bottom center;
+  transform-box: fill-box;
+  animation: brisaBotanicaIzquierda 4.8s ease-in-out infinite;
+}
+
+.animar-corriente-agua {
+  animation: corrienteFluvial 7s ease-in-out infinite;
+}
+
+.animar-flujo-cinta {
+  animation: flujoCintaIndustrial 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.animar-flujo-cinta-tardio {
+  animation: flujoCintaIndustrial 2.6s cubic-bezier(0.22, 1, 0.36, 1) 1.3s infinite;
+}
+
+.animar-ascenso-1 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ascensoParticula 3.4s ease-out infinite;
+}
+
+.animar-ascenso-2 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ascensoParticula 3.4s ease-out 1.7s infinite;
+}
+
+.animar-humo-1 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: humoContaminante 4.2s ease-in-out infinite;
+}
+
+.animar-humo-2 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: humoContaminante 4.6s ease-in-out 1.8s infinite;
+}
+
+.animar-goteo-1 {
+  animation: goteoLixiviado 2.8s ease-in infinite;
+}
+
+.animar-goteo-2 {
+  animation: goteoLixiviado 2.8s ease-in 1.4s infinite;
+}
+
+.animar-llama-biogas {
+  transform-origin: bottom center;
+  transform-box: fill-box;
+  animation: llamaControlada 2.1s ease-in-out infinite;
+}
+
+.animar-pulso-halo {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: pulsoHalo 4s ease-in-out infinite;
+}
+
+.animar-luciernaga-1 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: destelloLuciernaga 3.2s ease-in-out infinite;
+}
+
+.animar-luciernaga-2 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: destelloLuciernaga 3.8s ease-in-out 1.1s infinite;
+}
+
+.animar-luciernaga-3 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: destelloLuciernaga 4.4s ease-in-out 2.2s infinite;
+}
+
+/* Accesibilidad: simplifica animaciones si el usuario prefiere reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cara-giratoria {
+    transition: none !important;
+  }
+
+  .animar-levitacion,
+  .animar-orbita-horario,
+  .animar-orbita-antihorario,
+  .animar-brisa-izquierda,
+  .animar-brisa-derecha,
+  .animar-brote-vivo,
+  .animar-corriente-agua,
+  .animar-flujo-cinta,
+  .animar-flujo-cinta-tardio,
+  .animar-ascenso-1,
+  .animar-ascenso-2,
+  .animar-humo-1,
+  .animar-humo-2,
+  .animar-goteo-1,
+  .animar-goteo-2,
+  .animar-llama-biogas,
+  .animar-pulso-halo,
+  .animar-luciernaga-1,
+  .animar-luciernaga-2,
+  .animar-luciernaga-3 {
+    animation: none !important;
+  }
+
+  .presionable:active,
+  .elevacion-cursor:hover {
+    transform: none !important;
+  }
+}
