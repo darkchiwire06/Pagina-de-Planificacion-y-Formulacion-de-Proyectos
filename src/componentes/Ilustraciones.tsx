@@ -802,7 +802,7 @@ export function IlustracionConcepto({
  * tepuyes al horizonte, río vivo en movimiento, follaje tropical en primer plano
  * y esfera botánica central con anillos orbitales en contrarrotación.
  */
-export function EscenaPortadaBotanica() {
+export function EscenaPortada() {
   const uid = useId().replace(/:/g, '');
 
   return (

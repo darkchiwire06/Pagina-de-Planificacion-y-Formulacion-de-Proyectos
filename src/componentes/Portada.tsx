@@ -1,12 +1,11 @@
 import * as m from 'motion/react-m';
 import { useReducedMotion } from 'motion/react';
-import { Sprout } from 'lucide-react';
-import { EscenaPortadaBotanica } from './IlustracionesConceptos';
+import { EscenaPortada } from './Ilustraciones';
 
 const CURVA_SALIDA: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 // Portada limpia y equilibrada que conecta directamente con la barra de navegación y el contenido
-export function PortadaBotanica() {
+export function Portada() {
   const reducirMovimiento = useReducedMotion();
 
   const animacionEntrada = (retrasoSegundos: number) => ({
@@ -40,24 +39,16 @@ export function PortadaBotanica() {
       />
 
       <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-[clamp(1rem,2.5svh,1.6rem)] py-3">
-        {/* Insignia contextual superior */}
-        <m.div {...animacionEntrada(0.03)}>
-          <span className="inline-flex items-center gap-2 rounded-full border border-esmeralda/30 bg-hoja/85 px-3.5 py-1.5 text-xs font-medium text-esmeralda">
-            <Sprout className="w-4 h-4 shrink-0" aria-hidden="true" />
-            Conciencia ambiental y gestión integral
-          </span>
-        </m.div>
-
         {/* Titular editorial y subtítulo */}
         <m.h1
-          {...animacionEntrada(0.09)}
+          {...animacionEntrada(0.03)}
           className="font-display text-[clamp(2.2rem,9.2vw,3rem)] leading-[1.08] tracking-tight text-bruma sm:text-5xl font-semibold max-w-[19ch]"
         >
           De lo que descartamos a lo que permanece
         </m.h1>
 
         <m.p
-          {...animacionEntrada(0.15)}
+          {...animacionEntrada(0.1)}
           className="text-[1.02rem] sm:text-lg leading-[1.6] text-liquen max-w-[56ch]"
         >
           Descubre cómo distinguir un residuo aprovechable de un desecho, qué diferencia la
@@ -65,8 +56,8 @@ export function PortadaBotanica() {
         </m.p>
 
         {/* Ilustración central panorámica con proporción adaptable al alto de pantalla móvil */}
-        <m.div {...animacionEntrada(0.21)}>
-          <EscenaPortadaBotanica />
+        <m.div {...animacionEntrada(0.17)}>
+          <EscenaPortada />
         </m.div>
       </div>
     </header>

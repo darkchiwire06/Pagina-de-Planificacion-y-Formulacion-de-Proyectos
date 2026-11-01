@@ -9,7 +9,7 @@ import {
   type MotionValue,
 } from 'motion/react';
 import { DATOS_CICLO_BASURA, type EtapaCiclo } from '../datos/contenidoResiduos';
-import { IconoEtapa } from './IlustracionesConceptos';
+import { IconoEtapa } from './Ilustraciones';
 import { ReveladoScroll } from './ReveladoScroll';
 import { TextoEnriquecido } from './TextoEnriquecido';
 
@@ -165,7 +165,7 @@ function FilaEtapaCiclo({
 }
 
 // Sección completa del Ciclo de la basura sincronizada de forma continua con el scroll
-export function LineaTiempoCiclo() {
+export function CicloBasura() {
   const referenciaLista = useRef<HTMLOListElement | null>(null);
   const [etapaActiva, setEtapaActiva] = useState<number>(1);
 

@@ -6,7 +6,7 @@ import type {
   SeccionComparativa,
   VarianteTono,
 } from '../datos/contenidoResiduos';
-import { IlustracionConcepto } from './IlustracionesConceptos';
+import { IlustracionConcepto } from './Ilustraciones';
 import { CapsulaSabiasQue } from './CapsulaSabiasQue';
 import { ReveladoScroll } from './ReveladoScroll';
 import { TextoEnriquecido } from './TextoEnriquecido';

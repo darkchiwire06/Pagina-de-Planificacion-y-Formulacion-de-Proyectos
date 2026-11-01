@@ -4,7 +4,7 @@ import { useScroll } from 'motion/react';
 import { SECCIONES_NAVEGACION } from '../datos/contenidoResiduos';
 
 // Barra superior fija con indicador de lectura en GPU y navegación horizontal táctil
-export function BarraProgresoNavegacion() {
+export function BarraNavegacion() {
   const { scrollYProgress } = useScroll();
   const [idActivo, setIdActivo] = useState<string>(SECCIONES_NAVEGACION[0].id);
 

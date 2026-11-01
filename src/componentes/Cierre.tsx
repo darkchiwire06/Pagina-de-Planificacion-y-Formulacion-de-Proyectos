@@ -1,10 +1,10 @@
-import { ArrowUp, RefreshCw } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { DATOS_CICLO_BASURA } from '../datos/contenidoResiduos';
 import { ReveladoScroll } from './ReveladoScroll';
 import { TextoEnriquecido } from './TextoEnriquecido';
 
 // Bloque final de reflexión integral animado suavemente al llegar al final de la lectura
-export function CierreManifiesto() {
+export function Cierre() {
   const volverAlInicio = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -19,12 +19,7 @@ export function CierreManifiesto() {
               'radial-gradient(circle at 15% 15%, rgba(52, 211, 153, 0.16) 0%, rgba(19, 41, 31, 0) 60%), radial-gradient(circle at 88% 88%, rgba(251, 191, 36, 0.1) 0%, transparent 55%)',
           }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-esmeralda/30 bg-dosel/60 px-3.5 py-1.5 text-xs font-semibold text-esmeralda">
-            <RefreshCw className="w-3.5 h-3.5" aria-hidden="true" />
-            Visión integral
-          </div>
-
-          <div className="mt-4 space-y-4">
+          <div className="space-y-4">
             <p className="font-display text-xl sm:text-2xl font-medium leading-snug text-bruma">
               <TextoEnriquecido
                 segmentos={DATOS_CICLO_BASURA.parrafosCierre[0]}
