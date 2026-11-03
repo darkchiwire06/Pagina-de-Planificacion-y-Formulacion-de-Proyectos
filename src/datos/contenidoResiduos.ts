@@ -32,7 +32,6 @@ export interface LadoComparativo {
   id: string;
   titulo: string;
   tono: VarianteTono;
-  etiqueta: string;
   ilustracion: NombreIlustracion;
   parrafos: SegmentoTexto[][];
   ejemplo?: SegmentoTexto[];
@@ -78,7 +77,6 @@ export const SECCIONES_COMPARATIVAS: SeccionComparativa[] = [
       id: 'residuo',
       titulo: 'Residuo',
       tono: 'esmeralda',
-      etiqueta: 'Conserva valor potencial',
       ilustracion: 'botella',
       parrafos: [
         [
@@ -101,7 +99,6 @@ export const SECCIONES_COMPARATIVAS: SeccionComparativa[] = [
       id: 'desecho',
       titulo: 'Desecho',
       tono: 'terracota',
-      etiqueta: 'Sin revalorización',
       ilustracion: 'basura',
       parrafos: [
         [
@@ -143,7 +140,6 @@ export const SECCIONES_COMPARATIVAS: SeccionComparativa[] = [
       id: 'reutilizacion',
       titulo: 'Reutilización',
       tono: 'esmeralda',
-      etiqueta: 'Sin proceso industrial',
       ilustracion: 'frasco',
       parrafos: [
         [
@@ -160,7 +156,6 @@ export const SECCIONES_COMPARATIVAS: SeccionComparativa[] = [
       id: 'reciclaje',
       titulo: 'Reciclaje',
       tono: 'turquesa',
-      etiqueta: 'Transformación físico-química',
       ilustracion: 'reciclaje',
       parrafos: [
         [
@@ -200,7 +195,6 @@ export const SECCIONES_COMPARATIVAS: SeccionComparativa[] = [
       id: 'relleno-sanitario',
       titulo: 'Relleno sanitario',
       tono: 'esmeralda',
-      etiqueta: 'Obra de ingeniería controlada',
       ilustracion: 'capasControladas',
       parrafos: [
         [
@@ -247,7 +241,6 @@ export const SECCIONES_COMPARATIVAS: SeccionComparativa[] = [
       id: 'vertedero-cielo-abierto',
       titulo: 'Vertedero a cielo abierto',
       tono: 'terracota',
-      etiqueta: 'Sin control técnico ni sanitario',
       ilustracion: 'vertederoAbierto',
       parrafos: [
         [

@@ -19,7 +19,6 @@ function obtenerEstilosTono(tono: VarianteTono) {
         bordeTarjeta: 'border-esmeralda/30',
         resplandorTarjeta:
           'radial-gradient(circle at 90% 8%, rgba(52, 211, 153, 0.16) 0%, rgba(19, 41, 31, 0) 60%)',
-        insignia: 'bg-esmeralda/14 text-esmeralda border-esmeralda/35',
         resaltado: 'font-semibold text-esmeralda',
         cajaEjemplo: 'border-esmeralda/22 bg-dosel/70',
         pastillaActiva: 'bg-esmeralda text-dosel',
@@ -30,7 +29,6 @@ function obtenerEstilosTono(tono: VarianteTono) {
         bordeTarjeta: 'border-terracota/32',
         resplandorTarjeta:
           'radial-gradient(circle at 90% 8%, rgba(240, 100, 73, 0.16) 0%, rgba(19, 41, 31, 0) 60%)',
-        insignia: 'bg-terracota/14 text-terracota border-terracota/35',
         resaltado: 'font-semibold text-[#ff8b73]',
         cajaEjemplo: 'border-terracota/24 bg-dosel/70',
         pastillaActiva: 'bg-terracota text-dosel',
@@ -41,7 +39,6 @@ function obtenerEstilosTono(tono: VarianteTono) {
         bordeTarjeta: 'border-[#2dd4bf]/30',
         resplandorTarjeta:
           'radial-gradient(circle at 90% 8%, rgba(45, 212, 191, 0.16) 0%, rgba(19, 41, 31, 0) 60%)',
-        insignia: 'bg-[#2dd4bf]/14 text-[#2dd4bf] border-[#2dd4bf]/35',
         resaltado: 'font-semibold text-[#5eead4]',
         cajaEjemplo: 'border-[#2dd4bf]/22 bg-dosel/70',
         pastillaActiva: 'bg-[#2dd4bf] text-dosel',
@@ -76,15 +73,7 @@ function CaraConcepto({ lado, tituloContraparte, alVoltear }: PropiedadesCaraCon
       {/* Escena vectorial panorámica adaptada a proporción natural sin bordes vacíos */}
       <IlustracionConcepto nombre={lado.ilustracion} clase="w-full h-auto" />
 
-      <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2">
-        <span
-          className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium ${estilos.insignia}`}
-        >
-          {lado.etiqueta}
-        </span>
-      </div>
-
-      <h3 className="mt-2.5 font-display text-2xl sm:text-[1.65rem] font-semibold text-bruma leading-tight">
+      <h3 className="mt-4 font-display text-2xl sm:text-[1.65rem] font-semibold text-bruma leading-tight">
         {lado.titulo}
       </h3>
 
