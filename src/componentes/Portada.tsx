@@ -27,7 +27,7 @@ export function Portada() {
   });
 
   return (
-    <header className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-5 relleno-seguro-superior pb-24 sm:px-8 sm:pb-20">
+    <header className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-5 relleno-seguro-superior pb-7 sm:px-8 sm:pb-10">
       {/* Iluminación radial orgánica de fondo sin costo de desenfoque en GPU */}
       <div
         aria-hidden="true"
@@ -38,43 +38,42 @@ export function Portada() {
         }}
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-[clamp(1rem,2.5svh,1.6rem)] py-3">
-        {/* Materia y titular editorial en la parte superior */}
-        <div className="space-y-2.5 sm:space-y-3">
-          <m.p
-            {...animacionEntrada(0.03)}
-            className="text-xs sm:text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-esmeralda"
-          >
-            Formulación y evaluación de proyectos
-          </m.p>
-
-          <m.h1
-            {...animacionEntrada(0.08)}
-            className="font-display text-[clamp(2rem,8vw,2.9rem)] leading-[1.08] tracking-tight text-bruma font-semibold text-balance"
-          >
-            Campaña de concientización sobre la gestión de residuos
-          </m.h1>
-        </div>
+      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-[clamp(1rem,2.5svh,1.5rem)] py-3">
+        {/* Titular editorial en la parte superior */}
+        <m.h1
+          {...animacionEntrada(0.03)}
+          className="text-center font-display text-[clamp(2rem,8vw,2.9rem)] leading-[1.08] tracking-tight text-bruma font-semibold text-balance"
+        >
+          Campaña de concientización sobre la gestión de residuos
+        </m.h1>
 
         {/* Ilustración central panorámica con proporción adaptable al alto de pantalla móvil */}
-        <m.div {...animacionEntrada(0.13)}>
+        <m.div {...animacionEntrada(0.1)}>
           <EscenaPortada />
         </m.div>
-      </div>
 
-      {/* Autores en la esquina inferior derecha */}
-      <m.div
-        {...animacionEntrada(0.18)}
-        className="z-10 absolute right-5 bottom-[max(1.25rem,env(safe-area-inset-bottom,0px))] sm:right-8 sm:bottom-7 text-right leading-snug"
-      >
-        <p className="text-[0.72rem] sm:text-xs font-semibold uppercase tracking-[0.08em] text-esmeralda/90">
-          Realizado por:
-        </p>
-        <div className="mt-1 space-y-0.5 text-xs sm:text-sm font-medium text-bruma/95">
-          <p>Alvarado, Juan</p>
-          <p>Goncalves, Valentina</p>
-        </div>
-      </m.div>
+        {/* Créditos de asignatura, autores y semestre debajo de la animación */}
+        <m.div
+          {...animacionEntrada(0.17)}
+          className="space-y-1.5 text-center leading-relaxed"
+        >
+          <p className="text-xs sm:text-sm font-medium text-liquen">
+            Para la asignatura de Formulación y Evaluación de Proyectos
+          </p>
+
+          <p className="pt-1 text-[0.72rem] sm:text-xs font-semibold uppercase tracking-[0.08em] text-esmeralda">
+            Realizado por:
+          </p>
+
+          <p className="text-sm sm:text-base font-semibold text-bruma">
+            Alvarado Juan <span className="mx-2 text-esmeralda/75">|</span> Goncalves Valentina
+          </p>
+
+          <p className="text-xs sm:text-sm text-liquen/90">
+            Del 7mo semestre de Ingeniería en Informática
+          </p>
+        </m.div>
+      </div>
     </header>
   );
 }
